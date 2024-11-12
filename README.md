@@ -49,4 +49,4 @@ Make sure to keep the same setup while you were collecting the data. To evaluate
 python evaluate.py --task sort
 ~~~
 # ACT_lcb
-This is a repository modified by the Shaka_lab project
+This is a repository modified from the Shaka_lab project
