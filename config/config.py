@@ -7,7 +7,7 @@ import torch
 DATA_DIR = 'data/'
 
 # checkpoint directory
-CHECKPOINT_DIR = 'checkpoints/'
+CHECKPOINT_DIR = 'checkpoints/test'
 
 # device
 device = 'cpu'
@@ -17,8 +17,8 @@ os.environ['DEVICE'] = device
 
 # robot port names
 ROBOT_PORTS = {
-    'leader': '/dev/tty.usbmodem57380045221',
-    'follower': '/dev/tty.usbmodem57380046991'
+    'leader': '/dev/tty.usbserial-A10PCYXT',
+    'follower': '/dev/tty.usbserial-A10PCYX4'
 }
 
 
@@ -26,11 +26,11 @@ ROBOT_PORTS = {
 TASK_CONFIG = {
     'dataset_dir': DATA_DIR,
     'episode_len': 300,
-    'state_dim': 5,
-    'action_dim': 5,
+    'state_dim': 6,
+    'action_dim': 6,
     'cam_width': 640,
     'cam_height': 480,
-    'camera_names': ['front'],
+    'camera_names': ['front', 'top'],
     'camera_port': 0
 }
 
@@ -48,7 +48,7 @@ POLICY_CONFIG = {
     'enc_layers': 4,
     'dec_layers': 7,
     'nheads': 8,
-    'camera_names': ['front'],
+    'camera_names': ['front', 'top'],
     'policy_class': 'ACT',
     'temporal_agg': False
 }
@@ -56,7 +56,7 @@ POLICY_CONFIG = {
 # training config
 TRAIN_CONFIG = {
     'seed': 42,
-    'num_epochs': 2000,
+    'num_epochs': 10,
     'batch_size_val': 8,
     'batch_size_train': 8,
     'eval_ckpt_name': 'policy_last.ckpt',
